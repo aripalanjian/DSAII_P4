@@ -14,7 +14,7 @@ int main(int argC, char** argV){
 
     //Read Data from file
     const char* filename = "items.txt";
-    std::ifstream file("items.txt");
+    std::ifstream file(filename);
     int size = 0;
     double value = 0;
     file >> size;
@@ -28,11 +28,12 @@ int main(int argC, char** argV){
     }
     file.close();
 
-    for (int i = 0; i < size; i++){
+    while(!values.isEmpty()) {
         Item* val = values.pop();
         std::cout << val->getValue() << " ";
         delete val;
     }
+    std::cout << "\n";
 
     return 0;
 }

@@ -24,35 +24,43 @@ Item& Item::operator= (Item& copy){
 
 Bin::Bin(){
     head = nullptr;
-    // tail = nullptr;
-    // head = tail;
     tail = head;
     size = 0;
     value = 0.0;
 }
 
 Bin::~Bin(){
-    for (int i = 0; i < size; i++){
+    while (!isEmpty()) {
         pop();
     }
-    size = 0;
 }
 
 void Bin::push(Item* newTail){
     if (isEmpty()){
         head = newTail;
-        tail = newTail;
+        tail = head;
     } else {
         tail->setNext(newTail);
+        newTail->setPrev(tail);
         tail = newTail;
     }
+    value += newTail->getValue();
     size++;
 }
 
 Item* Bin::pop(){
-    Item* tmp = tail;
-    tail = tail->getPrev();
-    tail->setNext(nullptr);
+    Item* tmp;
+    if (tail == head){
+        tmp = head;
+        head = nullptr;
+        tail = nullptr;
+    } else {
+        tmp = tail;
+        tail = tail->getPrev();
+        tmp ->setPrev(nullptr);
+        tail->setNext(nullptr);
+    }
+    value -= tmp->getValue();
     size--;
     return tmp;
 }

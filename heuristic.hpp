@@ -13,16 +13,14 @@ public:
     ~Heuristic();
 
     bool firstHelper(int index);
-    void onlineFirst();
-    void onlineNext();
-    void onlineBest();
-
-    void offlineFirst();
-    void offlineBest();
+    void firstFit();
+    void nextFit();
+    void bestFit();
 
     void getSnapshot();
 
     int getSize(){return size;}
+    double dataAt(int index){return data[index];}
 };
 
 #endif

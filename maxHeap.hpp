@@ -10,9 +10,9 @@ public:
     ~MaxHeap(){delete[] array;}
     T pop();
     T peek();
-    void insert(T value){array[size] = value;size++;}
     void heapify(int index);
     T get(int index){return array[index];}
+    T* getArray(){return array;}
     void swap(int a, int b);
     void resize();
     void print();

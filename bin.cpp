@@ -31,7 +31,7 @@ Bin::Bin(){
 
 Bin::~Bin(){
     while (!isEmpty()) {
-        pop();
+        delete pop();
     }
 }
 
@@ -55,10 +55,10 @@ Item* Bin::pop(){
         head = nullptr;
         tail = nullptr;
     } else {
-        tmp = tail;
-        tail = tail->getPrev();
-        tmp ->setPrev(nullptr);
-        tail->setNext(nullptr);
+        tmp = head;
+        head = head->getNext();
+        tmp ->setNext(nullptr);
+        head->setPrev(nullptr);
     }
     value -= tmp->getValue();
     size--;

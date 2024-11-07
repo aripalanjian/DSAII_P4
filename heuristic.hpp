@@ -1,17 +1,28 @@
 #ifndef HEURISTIC_HPP
 #define HEURISTIC_HPP
+#include "bin.hpp"
 
 class Heuristic{
+    Bin* bins;
+    double* data;
+    int capacity;
+    int size;
 
-    public:
-        void onlineFirst();
-        void onlineNext();
-        void onlineBest();
+public:
+    Heuristic(int capacity, double data[]);
+    ~Heuristic();
 
-        void offlineFirst();
-        void offlineBest();
+    bool firstHelper(int index);
+    void onlineFirst();
+    void onlineNext();
+    void onlineBest();
 
-        void getSnapshot();
+    void offlineFirst();
+    void offlineBest();
+
+    void getSnapshot();
+
+    int getSize(){return size;}
 };
 
 #endif

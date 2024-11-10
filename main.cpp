@@ -9,7 +9,6 @@
 #include <fstream>
 #include <string.h>
 #include <iomanip>
-#include "bin.hpp"
 #include "maxHeap.hpp"
 #include "heuristic.hpp"
 #include "brute.hpp"

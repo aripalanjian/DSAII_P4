@@ -14,8 +14,6 @@
 #define BRUTE_HPP
 
 #include <time.h>
-#include "heuristic.hpp"
-#include "bin.hpp"
 
 
 class Brute{
@@ -37,7 +35,6 @@ class Brute{
     void calculateFactorial();    
     void swap(int i, int j);
     void perm1(double s[]);
-    void packBins();
     int modNextFit(double s[]);
     
     void printS(double s[]);

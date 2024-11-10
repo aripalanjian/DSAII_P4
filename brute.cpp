@@ -64,18 +64,6 @@ void Brute::perm1(double s[]){
     permutations[count++] = s;
 }
 
-void Brute::packBins(){
-    Heuristic tmp(size, data);
-    tmp.bestFit();
-    int testSize = tmp.getSize();
-    if(testSize < minBins){
-        minBins = testSize;
-        for (int i = 0; i < size; i++){
-            best[i] = data[i];
-        }
-    }
-}
-
 void Brute::printS(double data[]){
     using std::cout;
     for(int i = 0; i < size; i++){
